@@ -1,0 +1,6 @@
+led / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+client_secret.json
+quarantrivia_client.json

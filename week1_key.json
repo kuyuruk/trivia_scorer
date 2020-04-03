@@ -1,0 +1,61 @@
+{
+  "key": {
+    "round1_answers": [
+      "quinoa",
+      "garnish",
+      "basil",
+      "edamame",
+      "yogurt",
+      "caviar",
+      "michael jordan",
+      "lebron james",
+      "michael phelps",
+      "lindsey vonn",
+      "joe montana",
+      "arnold palmer"
+    ],
+    "round2_answers": [
+      "red pill",
+      "bill murray",
+      "old time rock and roll",
+      "sound of music",
+      "avenger's endgame",
+      "gladiator",
+      "two",
+      "wingardium leviosa",
+      "treebeard",
+      "darth maul",
+      "gamma",
+      "sean connery"
+    ],
+    "round3_answers": [
+      "manila",
+      "cairo",
+      "madrid",
+      "berlin",
+      "paris",
+      "rome",
+      "brad pitt",
+      "matt damon",
+      "john wayne",
+      "denzel washington",
+      "morgan freeman",
+      "despacito"
+    ],
+    "round4_answers": [
+      "abbey road",
+      "27",
+      "ivory",
+      "leonard cohen",
+      "deadheads",
+      "dark side of the moon",
+      "illinois",
+      "homework",
+      "freddie mercury",
+      "8",
+      "beastie boys",
+      "4"
+    ],
+    "bonus_answer": "k2"
+  }
+}
