@@ -78,7 +78,7 @@ with open('week1_key.json') as week1_key:
     elif round == 'The Bonus Round':
       for i in range(0,len(answers)): 
         if fw.fuzzy_match(answers[i], key_data['key']['bonus_answer']):
-          score += 1
+          score += 5
     
     # Write Score Into Spreadsheet
     sheet.update_cell(row, 16, score)
