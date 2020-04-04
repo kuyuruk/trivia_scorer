@@ -1,0 +1,61 @@
+{
+  "key": {
+    "round1_answers": [
+      "Hopper",
+      "Momo",
+      "Winterfell",
+      "I Have Spoken",
+      "Middle Out",
+      "Hannah Brown",
+      "Fear Factor",
+      "Dunder Mifflin",
+      "Heisenberg",
+      "Shony's",
+      "A realtor",
+      "Dolores"
+    ],
+    "round2_answers": [
+      "Salt Water",
+      "Hemoglobin",
+      "Heimlich",
+      "Mitochondria",
+      "ATP - Adenosine Triphosphate",  
+      "Quinine",
+      "Tongue Prints",
+      "Permafrost",
+      "Noble Gases",
+      "Photon",
+      "Halleys",
+      "Arteries"
+    ],
+    "round3_answers": [
+      "3",
+      "Elk",
+      "Siamese",
+      "Elephant",
+      "Platypus Anteater",
+      "Albatross",
+      "Lion",
+      "Dog",
+      "Tardigrade",
+      "Pride",
+      "Pangolin",
+      "Roadrunner"
+    ],
+    "round4_answers": [
+      "Summer of 69",
+      "Slippery When wet",
+      "Miley Cyrus",
+      "I took two weeks vacation",
+      "1973",
+      "Steve Perry",
+      "God's Plan",
+      "A Milli",
+      "2018",
+      "2016",
+      "1996",
+      "West Virginia "
+    ],
+    "bonus_answer": "Lake Chelan"
+  }
+}

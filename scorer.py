@@ -26,7 +26,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('quarantrivia_client.js
 client = gspread.authorize(creds)
 
 # Open Sheet 
-sheet = client.open("QuaranTrivia").sheet1
+sheet = client.open("QuaranTrivia: Week 2 (Responses)").sheet1
 
 # # Read Team Names and Round Number 
 # team_name_entries  = sheet.col_values(2)
@@ -43,7 +43,7 @@ starting_row = int(sys.argv[1])
 ending_row   = int(sys.argv[2]) + 1
 
 # Use JSON Answer Key for Answer Checking
-with open('week1_key.json') as week1_key:
+with open('week2_key.json') as week1_key:
   key_data = json.load(week1_key)
 
   # Read Answers By Row
@@ -52,8 +52,8 @@ with open('week1_key.json') as week1_key:
     team_name   = row_entries[1]
     score       = 0
     round       = row_entries[2]
-    answers     = row_entries[3::]
-    
+    answers     = row_entries[3:15]
+
     # Convert Strings to Lowercase
     for answer in answers: 
       answer = answer.lower
@@ -61,23 +61,48 @@ with open('week1_key.json') as week1_key:
     # Check Answers and Calculate Score
     if round == 'Round 1':
       for i in range(0,len(answers)): 
-        if fw.fuzzy_match(answers[i], key_data['key']['round1_answers'][i]):
+        if isinstance(key_data['key']['round1_answers'][i], list):
+          for j in range(0,len(key_data['key']['round1_answers'][i])):
+            if fw.fuzzy_match(answers[i], key_data['key']['round1_answers'][i][j]):
+              score += 1
+              break
+        elif fw.fuzzy_match(answers[i], key_data['key']['round1_answers'][i]):
           score += 1
     elif round == 'Round 2':
       for i in range(0,len(answers)): 
-        if fw.fuzzy_match(answers[i], key_data['key']['round2_answers'][i]):
-          score += 1 
+        if isinstance(key_data['key']['round2_answers'][i], list):
+          for j in range(0,len(key_data['key']['round2_answers'][i])):
+            if fw.fuzzy_match(answers[i], key_data['key']['round2_answers'][i][j]):
+              score += 1
+              break
+        elif fw.fuzzy_match(answers[i], key_data['key']['round2_answers'][i]):
+          score += 1
     elif round == 'Round 3':
       for i in range(0,len(answers)): 
-        if fw.fuzzy_match(answers[i], key_data['key']['round3_answers'][i]):
+        if isinstance(key_data['key']['round3_answers'][i], list):
+          for j in range(0,len(key_data['key']['round3_answers'][i])):
+            if fw.fuzzy_match(answers[i], key_data['key']['round3_answers'][i][j]):
+              score += 1
+              break
+        elif fw.fuzzy_match(answers[i], key_data['key']['round3_answers'][i]):
           score += 1
     elif round == 'Round 4':
       for i in range(0,len(answers)): 
-        if fw.fuzzy_match(answers[i], key_data['key']['round4_answers'][i]):
+        if isinstance(key_data['key']['round4_answers'][i], list):
+          for j in range(0,len(key_data['key']['round4_answers'][i])):
+            if fw.fuzzy_match(answers[i], key_data['key']['round4_answers'][i][j]):
+              score += 1
+              break
+        elif fw.fuzzy_match(answers[i], key_data['key']['round4_answers'][i]):
           score += 1
     elif round == 'The Bonus Round':
-      for i in range(0,len(answers)): 
-        if fw.fuzzy_match(answers[i], key_data['key']['bonus_answer']):
+      for i in range(0,1): 
+        if isinstance(key_data['key']['bonus_answer'][i], list):
+          for j in range(0,len(key_data['key']['bonus_answer'][i])):
+            if fw.fuzzy_match(answers[i], key_data['key']['bonus_answer'][i][j]):
+              score += 5
+              break
+        elif fw.fuzzy_match(answers[i], key_data['key']['bonus_answer'][i]):
           score += 5
     
     # Write Score Into Spreadsheet
