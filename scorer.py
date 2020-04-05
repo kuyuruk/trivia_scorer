@@ -5,20 +5,12 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import json
-import fuzzy_wuzzy as fw
+import regex_strcomp as r_strcmp
 import sys
 
-# # Class Team
-# class team:
-#   def __init__(self, name):
-#     self.name = name
-#   round1_ans = []
-#   round2_ans = []
-#   round3_ans = []
-#   round4_ans = []
-#   bonus_ans  = 'none'
-#   score      = 0 
-#   rank       = 'none' 
+# Identify the Rows to be Analyzed (User Input)
+starting_row = int(sys.argv[1])
+ending_row   = int(sys.argv[2]) + 1
 
 # Setup Google Dev API Access
 scope = ['https://www.googleapis.com/auth/drive']
@@ -27,20 +19,6 @@ client = gspread.authorize(creds)
 
 # Open Sheet 
 sheet = client.open("QuaranTrivia: Week 2 (Responses)").sheet1
-
-# # Read Team Names and Round Number 
-# team_name_entries  = sheet.col_values(2)
-
-# # Extract Unique Team Names
-# for name_entry in team_name_entries:
-#   #print('name_entry:' + str(name_entry))
-#   if all(team.name != name_entry for team in teams):    
-#       teams.append(team(name_entry))
-#       print('team_obj:' + str(name_entry))
-
-# Only Score the Specified Rows
-starting_row = int(sys.argv[1])
-ending_row   = int(sys.argv[2]) + 1
 
 # Use JSON Answer Key for Answer Checking
 with open('week2_key.json') as week1_key:
@@ -63,47 +41,47 @@ with open('week2_key.json') as week1_key:
       for i in range(0,len(answers)): 
         if isinstance(key_data['key']['round1_answers'][i], list):
           for j in range(0,len(key_data['key']['round1_answers'][i])):
-            if fw.fuzzy_match(answers[i], key_data['key']['round1_answers'][i][j]):
+            if r_strcmp.fuzzy_match(answers[i], key_data['key']['round1_answers'][i][j]):
               score += 1
               break
-        elif fw.fuzzy_match(answers[i], key_data['key']['round1_answers'][i]):
+        elif r_strcmp.fuzzy_match(answers[i], key_data['key']['round1_answers'][i]):
           score += 1
     elif round == 'Round 2':
       for i in range(0,len(answers)): 
         if isinstance(key_data['key']['round2_answers'][i], list):
           for j in range(0,len(key_data['key']['round2_answers'][i])):
-            if fw.fuzzy_match(answers[i], key_data['key']['round2_answers'][i][j]):
+            if r_strcmp.fuzzy_match(answers[i], key_data['key']['round2_answers'][i][j]):
               score += 1
               break
-        elif fw.fuzzy_match(answers[i], key_data['key']['round2_answers'][i]):
+        elif r_strcmp.fuzzy_match(answers[i], key_data['key']['round2_answers'][i]):
           score += 1
     elif round == 'Round 3':
       for i in range(0,len(answers)): 
         if isinstance(key_data['key']['round3_answers'][i], list):
           for j in range(0,len(key_data['key']['round3_answers'][i])):
-            if fw.fuzzy_match(answers[i], key_data['key']['round3_answers'][i][j]):
+            if r_strcmp.fuzzy_match(answers[i], key_data['key']['round3_answers'][i][j]):
               score += 1
               break
-        elif fw.fuzzy_match(answers[i], key_data['key']['round3_answers'][i]):
+        elif r_strcmp.fuzzy_match(answers[i], key_data['key']['round3_answers'][i]):
           score += 1
     elif round == 'Round 4':
       for i in range(0,len(answers)): 
         if isinstance(key_data['key']['round4_answers'][i], list):
           for j in range(0,len(key_data['key']['round4_answers'][i])):
-            if fw.fuzzy_match(answers[i], key_data['key']['round4_answers'][i][j]):
+            if r_strcmp.fuzzy_match(answers[i], key_data['key']['round4_answers'][i][j]):
               score += 1
               break
-        elif fw.fuzzy_match(answers[i], key_data['key']['round4_answers'][i]):
+        elif r_strcmp.fuzzy_match(answers[i], key_data['key']['round4_answers'][i]):
           score += 1
-    elif round == 'The Bonus Round':
-      for i in range(0,1): 
-        if isinstance(key_data['key']['bonus_answer'][i], list):
-          for j in range(0,len(key_data['key']['bonus_answer'][i])):
-            if fw.fuzzy_match(answers[i], key_data['key']['bonus_answer'][i][j]):
-              score += 5
-              break
-        elif fw.fuzzy_match(answers[i], key_data['key']['bonus_answer'][i]):
-          score += 5
+    # THIS ROUND IS FURKED URP - FIX DAT
+    elif round == 'Bonus Round':
+      if isinstance(key_data['key']['bonus_answer'], list):
+        for j in range(0,len(key_data['key']['bonus_answer'])):
+          if r_strcmp.fuzzy_match(answers[0], key_data['key']['bonus_answer'][j]):
+            score += 5
+            break
+      elif r_strcmp.fuzzy_match(answers[0], key_data['key']['bonus_answer']):
+        score += 5
     
     # Write Score Into Spreadsheet
     sheet.update_cell(row, 16, score)
@@ -112,3 +90,4 @@ with open('week2_key.json') as week1_key:
     print(team_name)
     print(answers)
     print('row ' + str(row) + ' score = ' + str(score))
+    print('\n')
