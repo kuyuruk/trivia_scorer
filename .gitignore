@@ -4,3 +4,4 @@ __pycache__/
 *$py.class
 client_secret.json
 quarantrivia_client.json
+.vscode*
