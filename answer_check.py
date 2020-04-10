@@ -5,13 +5,15 @@ from fuzzywuzzy import fuzz
 #   round:   string variable defining the trivia round
 #   answers: list variable holding the answers submitted in the sheet row
 #   key:     json object containing the answer key for trivia session
+#   debug:   boolean value indicating if debug prints are enabled
 # Returns: 
-#  score:    score value for the submitted answers (negative = error)
+#   score:   score value for the submitted answers (negative = error)
 #-----------------------------------------------------------------------------#
-def check_round(round, answers, key):
+def check_round(round, answers, key, debug):
   #TODO evaluate which fuzzy logic method to use
   score          = 0  
   fuzz_threshold = 70
+  round_weight   = 1
   key_values     = None
 
   # Determine Round
@@ -24,6 +26,8 @@ def check_round(round, answers, key):
   elif round == 'Round 4':
     answer_round_str = 'round4_answers'
   elif round == 'Bonus Round':
+    round_weight     = 5
+    answers          = answers[:1]
     answer_round_str = 'bonus_answer'
   
   # Do Answer Validation
@@ -32,16 +36,20 @@ def check_round(round, answers, key):
     if isinstance(key_values[i], list):
       for j in range(0,len(key_values[i])):
         fuzz_val = fuzz.token_set_ratio(answers[i], key_values[i][j])
-        print(answers[i])
-        print('fuzz_val = ' + str(fuzz_val))
+        if debug:
+          print('key_val = ' + str(key_values[i][j]))
+          print('answer = ' + str(answers[i]))
+          print('fuzz_val = ' + str(fuzz_val))
         if(fuzz_val > fuzz_threshold):
-          score += 1 
+          score += round_weight 
           break
     else:
       fuzz_val = fuzz.token_set_ratio(answers[i], key_values[i])
-      print(answers[i])
-      print('fuzz_val = ' + str(fuzz_val))
+      if debug:
+        print('key_val = ' + str(key_values[i]))
+        print('answer = ' + str(answers[i]))
+        print('fuzz_val = ' + str(fuzz_val))
       if(fuzz_val > fuzz_threshold):
-        score += 1
+        score += round_weight
 
   return score
