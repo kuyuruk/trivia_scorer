@@ -15,7 +15,7 @@ def check_round(round, answers, key, debug):
   fuzz_threshold = 70
   round_weight   = 1
   key_values     = None
-
+  
   # Determine Round
   if round == 'Round 1':
     answer_round_str = 'round1_answers'
@@ -35,7 +35,7 @@ def check_round(round, answers, key, debug):
     key_values = key['key'][answer_round_str]
     if isinstance(key_values[i], list):
       for j in range(0,len(key_values[i])):
-        fuzz_val = fuzz.token_set_ratio(answers[i], key_values[i][j])
+        fuzz_val = fuzz.partial_ratio(answers[i], key_values[i][j])
         if debug:
           print('key_val = ' + str(key_values[i][j]))
           print('answer = ' + str(answers[i]))
@@ -44,7 +44,7 @@ def check_round(round, answers, key, debug):
           score += round_weight 
           break
     else:
-      fuzz_val = fuzz.token_set_ratio(answers[i], key_values[i])
+      fuzz_val = fuzz.partial_ratio(answers[i], key_values[i])
       if debug:
         print('key_val = ' + str(key_values[i]))
         print('answer = ' + str(answers[i]))

@@ -1,0 +1,61 @@
+{
+  "key": {
+    "round1_answers": [
+      ["bilbo baggins", "bilbo"],
+      ["20", "twenty"],
+      "mirkwood",
+      "shadowfax",
+      "denathor",
+      ["111", "eleventy first"],
+      "abberforth",
+      ["the dark mark", "dark mark"],
+      "thestral",
+      "deluminator",
+      "privet drive",
+      "kreacher"
+    ],
+    "round2_answers": [
+      "durian",
+      ["eleven", "11"],
+      "uni",
+      ["chewing gum", "gum"],
+      "wheat",
+      "pretzel",
+      "rice",
+      "popcorn",
+      "mushroom",
+      "fondue",
+      "asparagus",
+      ["coconuts and dates", "coconuts dates"]
+    ],
+    "round3_answers": [
+      ["mackenzie tuttle", "mackenzie", "mackenzie scott tuttle"],
+      "endless love",
+      "hellen keller",
+      ["jimmy carter", "carter"],
+      ["lewis carrol", "carrol"],
+      ["alan sheppard", "sheppard"],
+      ["john wilkes booth", "booth"],
+      "madonna",
+      "stephen king",
+      ["sir winston churchill", "winston churchill", "churchill"],
+      "to kill a mockingbird",
+      "gwyneth paltrow"
+    ],
+    "round4_answers": [
+      ["illegal", "no"],
+      ["illegal", "no"],
+      ["illegal", "no"],
+      ["illegal", "no"],
+      ["illegal", "no"],
+      ["illegal", "no"],
+      ["legal", "yes"],
+      ["illegal", "no"],
+      ["legal", "yes"],
+      ["legal", "yes"],
+      ["legal", "yes"],
+      ["legal", "yes"]
+    ],
+    "bonus_answer": ["79", "seventy nine"]
+  }
+}

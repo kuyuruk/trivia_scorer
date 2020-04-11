@@ -30,10 +30,10 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('quarantrivia_client.js
 client = gspread.authorize(creds)
 
 # Open Sheet 
-sheet = client.open("QuaranTrivia: Week 2 (Responses)").sheet1
+sheet = client.open("Week 3(Responses)").sheet1
 
 # Use JSON Answer Key for Answer Checking
-with open('week2_key.json') as week_key:
+with open('week3_key.json') as week_key:
   key_data = json.load(week_key)
 
   # Read Answers By Row
