@@ -1,5 +1,6 @@
 {
   "key": {
+    "round1_threshold" : 70,
     "round1_answers": [
       ["bilbo baggins", "bilbo"],
       ["20", "twenty"],
@@ -12,8 +13,9 @@
       "thestral",
       "deluminator",
       "privet drive",
-      "kreacher"
+      ["kreacher", "creature"]
     ],
+    "round2_threshold" : 70,
     "round2_answers": [
       "durian",
       ["eleven", "11"],
@@ -28,6 +30,7 @@
       "asparagus",
       ["coconuts and dates", "coconuts dates"]
     ],
+    "round3_threshold" : 70,
     "round3_answers": [
       ["mackenzie tuttle", "mackenzie", "mackenzie scott tuttle"],
       "endless love",
@@ -42,6 +45,7 @@
       "to kill a mockingbird",
       "gwyneth paltrow"
     ],
+    "round4_threshold" : 90,
     "round4_answers": [
       ["illegal", "no"],
       ["illegal", "no"],
@@ -56,6 +60,7 @@
       ["legal", "yes"],
       ["legal", "yes"]
     ],
+    "bonus_threshold": 90,
     "bonus_answer": ["79", "seventy nine"]
   }
 }
