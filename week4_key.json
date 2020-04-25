@@ -27,7 +27,7 @@
       "Mohammed Ali",
       ["180","one hundred eighty","one hundred and eighty"],
       ["60","sixty"],
-      "Pittsburg",
+      ["Pittsburg","Steelers","Patriots","New England"],
       "Wilt Chamberlain"
     ],
     "round3_threshold" : 70,
@@ -36,7 +36,7 @@
       "Worlds Fair",
       "Goldfinch",
       "Deception pass",
-      ["FDR Lake", "Franklin D Roosevelt Lake", "Franklin Deleno Roosevelt Lake", "Lake Roosevelt"],
+      ["FDR Lake", "Franklin D Roosevelt Lake", "Franklin Delenor Roosevelt Lake", "Lake Roosevelt"],
       ["Grand Coulee Dam", "Grand Coulee"],
       "Square Dance",
       "Petrified Wood",
@@ -61,6 +61,6 @@
       "Toblerone"
     ],
     "bonus_threshold": 90,
-    "bonus_answer": ["", ""]
+    "bonus_answer": ["South Dakota"]
   }
 }
