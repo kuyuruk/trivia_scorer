@@ -1,0 +1,66 @@
+{
+  "key": {
+    "round1_threshold" : 70,
+    "round1_answers": [
+      ["The Hangover", "Hangover"],
+      "Doing", 
+      "John Lennon",
+      ["The Godfather","Godfather"],
+      ["Benjamin Franklin", "Ben Franklin"],
+      "Jimi Hendrix",
+      "Spiderman",
+      "Aristotle", 
+      "Abraham LIncoln",
+      ["Dr. Seuss", "Doctor Seuss"],
+      "Airplane",
+      "Legally Blonde"
+    ],
+    "round2_threshold" : 70,
+    "round2_answers": [
+      "Joe Burrow",
+      "Usain Bolt",
+      "Michael Phelps",
+      "Granite", 
+      "Eagle",
+      "Duck",
+      "Bantamweight",
+      "Mohammed Ali",
+      ["180","one hundred eighty","one hundred and eighty"],
+      ["60","sixty"],
+      "Pittsburg",
+      "Wilt Chamberlain"
+    ],
+    "round3_threshold" : 70,
+    "round3_answers": [
+      "Spokane",
+      "Worlds Fair",
+      "Goldfinch",
+      "Deception pass",
+      ["FDR Lake", "Franklin D Roosevelt Lake", "Franklin Deleno Roosevelt Lake", "Lake Roosevelt"],
+      ["Grand Coulee Dam", "Grand Coulee"],
+      "Square Dance",
+      "Petrified Wood",
+      "Wall Walla Sweet Onion",
+      "Western Hemlock",
+      "Palouse Falls",
+      ["42nd", "forty second","42"]
+    ],
+    "round4_threshold" : 70,
+    "round4_answers": [
+      ["Airbnb", "Air b&b"],
+      "Boeing",
+      "Carhartt",
+      "Champion",
+      "Crocs",
+      "Delorian Motor Company",
+      "Fruit of the loom",
+      "Tommy Hilfiger",
+      "Morton Salt",
+      ["MSNBC", "NBC"],
+      "Nestle",
+      "Toblerone"
+    ],
+    "bonus_threshold": 90,
+    "bonus_answer": ["", ""]
+  }
+}
